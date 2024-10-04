@@ -1,0 +1,24 @@
+{
+  "name": "@nestjs-demo/domain",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "main": "dist/domain.temp.js",
+  "types": "dist/domain.temp.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    "./*": "./dist/*.js"
+  },
+  "scripts": {
+    "build": "tsc && tsc-alias"
+  },
+  "devDependencies": {
+    "tsc-alias": "^1.8.10",
+    "typescript": "^4.0.0"
+  },
+  "dependencies": {
+    "@nestjs-demo/domain": "file:",
+    "domain": "file:"
+  }
+}

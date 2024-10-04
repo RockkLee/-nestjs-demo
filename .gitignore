@@ -1,0 +1,61 @@
+# Dependencies
+node_modules/**
+
+# Build outputs
+*/dist/*
+dist/*
+
+# TypeScript cache
+tsconfig.tsbuildinfo
+
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Database files
+*.sqlite
+*.sqlite3
+
+
+# Environment variables
+.env
+.env.*
+
+# IDE/editor directories and files
+.vscode/
+.idea/
+*.sublime-*
+
+# MacOS files
+.DS_Store
+
+# Temporary files
+temp/
+temp.*
+**/temp.*
+
+# Coverage directory
+coverage/
+.nyc_output/
+
+# Test results
+test-results/
+jest-e2e.json
+
+# Miscellaneous
+*.pid
+*.seed
+*.pid.lock

@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+         // Enables support for project references
+        "composite": true, // Required for project references
+        "module": "commonjs", // Specify the module system of the compiled output JS files
+        "target": "ES6", // Specify the version of the output compiled JS files
+        // "declaration": true, //Generate declaration files
+        // "declarationMap": true, // Generate source maps for declaration files.
+        "moduleResolution": "node",  // Defines how modules are resolved. "node" means the TypeScript compiler will mimic Node.js behavior.
+        "skipLibCheck": true // Skips type-checking of declaration files (.d.ts) in node_modules, speeding up compilation.
+    },
+    "references": [
+        { "path": "./app" },
+        { "path": "./domain" },
+        { "path": "./infra" }
+    ]
+}

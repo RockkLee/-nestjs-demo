@@ -1,0 +1,17 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "baseUrl": "./src",
+    "paths": {
+      "@nestjs-demo/app/*": ["./*"],
+      "@nestjs-demo/domain/*": ["../../domain/dist/*"]
+    }
+  },
+  "references": [
+    { "path": "../domain" }
+  ],
+  "include": ["src/**/*"],
+  "exclude": ["dist"]
+}

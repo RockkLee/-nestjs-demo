@@ -1,0 +1,33 @@
+{
+  "extends": "../tsconfig.json", // Inherits settings from the root tsconfig.json file
+  "compilerOptions": {
+    "emitDecoratorMetadata": true, // Enables metadata reflection for decorators, needed by NestJS for dependency injection
+    "experimentalDecorators": true, // Enables the use of decorators, a feature used extensively by NestJS
+    // Allow writing import syntax like this `import React from "react";` rather than `import * as React from "react";`
+    "allowSyntheticDefaultImports": true,
+    "outDir": "./dist", // Specifies the output directory for compiled files
+    "rootDir": "./src", // Specifies the root directory of input source files for compiling TS files to JS files
+    ///////////////////////////////
+    // The map of absolute imported paths:
+    // - For type aliases: Maps the paths in TS files to the compiled JS files in the 'dist' directory (after compiling TS files to JS files, then running the JS files).
+    // - For ts-node: Maps the paths directly when running TS files without compilation.
+    "baseUrl": "./src",
+    "paths": {
+      "@nestjs-demo/infra/*": ["./*"],
+      "@nestjs-demo/app/*": ["../../app/dist/*"],
+      "@nestjs-demo/domain/*": ["../../domain/dist/*"]
+    },
+    ///////////////////////////////
+    "noEmit": false, // Enable/Disable code emission, i.e., allows TypeScript to generate output files
+    "strictNullChecks": false, // Enable/Disable strict null checks
+    "noImplicitAny": false, // Enable/Disable error reporting for variables typed as `any`
+    "strictBindCallApply": false, // Enable/Disable strict checking of function arguments, i.e., `bind`, `call`, and `apply`
+    "forceConsistentCasingInFileNames": false, // Enable/Disable consistent casing of filenames between imports and file system
+    "noFallthroughCasesInSwitch": false 
+  },
+  "include": ["src/**/*"],
+  "references": [
+    { "path": "../app" },
+    { "path": "../domain" }
+  ]
+}

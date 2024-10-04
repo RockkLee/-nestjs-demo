@@ -1,0 +1,24 @@
+{
+  "name": "nestjs-demo",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "infra",
+    "app",
+    "domain"
+  ],
+  "dependencies": {
+    "nestjs-demo": "file:"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.3",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.6.2"
+  },
+  "scripts": {
+    "_build": "npm run build --workspace=domain && npm run build --workspace=app && npm run build --workspace=infra",
+    "_start": "npm run start --workspace=infra",
+    "_start:ts-node": "ts-node -r tsconfig-paths/register -P infra/tsconfig.json infra/src/main.ts"
+  }
+}
