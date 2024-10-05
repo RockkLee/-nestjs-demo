@@ -216,6 +216,7 @@ sheng@MSI:nestjs-demo$ tree ./ -I "node_modules|dist"
 export class UserModule {}
 ```
 - In the current structure, I'm not sure why the infra sub-module can use type-aliases to map the imported paths but the app sub-module can't.
+    - The difference might be caused by the infra module using `nest build` and the app module using `tsc` for compiling.
     - The chart below demonstrates the issue.
 ```
             ----------------------------------------------------------
@@ -224,11 +225,11 @@ infra -----| - Map imported paths from other modules: `type-aliases`  |
   |        |                                                          |
   |         ----------------------------------------------------------
   |       
-  |         ------------------------------------------------------------------------------
-  V        | - Map imported paths from its own module: `type-aliases`                     |
- app ------| - Map imported paths from other modules: `exports` (in domain/package.json)  |
-  |        |                                                                              |
-  |         ------------------------------------------------------------------------------
+  |         ---------------------------------------------------------------------------------------
+  V        | - Map imported paths from its own module: `type-aliases`                              |
+ app ------| - Map imported paths from other modules: `exports` (in domain/package.json)           |
+  |        |     - The sub-modules' names should be `@<root-name>/xxx` for the `exports` method.   |
+  |         ---------------------------------------------------------------------------------------
   V
 domain
 ```
